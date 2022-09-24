@@ -1,22 +1,78 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <h1>This is the Home page</h1>
-        <script src="" async defer></script>
-    </body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>This is the Home page</h1>
+        <form method="post" action="{{ url_for('predict') }}">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">CRIM</label>
+                <input type="text" class="form-control" id="inputEmail4" placeholder="CRIM" name="crim">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">ZN</label>
+                <input type="text" class="form-control" id="inputPassword4" placeholder="ZN" name="zn">
+              </div> 
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAddress">INDUS</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="INDUS" name="indus">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAddress2">CHAS</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="CHAS" name="chas">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">NOX</label>
+                <input type="text" class="form-control" id="inputCity" placeholder="NOX" name="nox">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputState">RM</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="RM" name="rm">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputZip">AGE</label>
+                <input type="text" class="form-control" id="inputZip" placeholder="AGE" name="age">
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">DIS</label>
+                  <input type="text" class="form-control" id="inputEmail4" placeholder="DIS" name="dis">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">RAD</label>
+                  <input type="text" class="form-control" id="inputPassword4" placeholder="RAD" name="rad">
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAddress">TAX</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="TAX" name="tax">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAddress2">PTRATIO</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="PTRATIO" name="ptratio">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">B</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="B" name="b">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputState">LSTAT</label>
+                  <input type="text" class="form-control" id="inputAddress2" placeholder="LSTAT" name="lstat">
+                </div>
+              </div>
+            <input type="submit" class="btn btn-primary" value="Click Here to Predict">
+          </form>
+
+          <h3>{{prediction_text}}</h3>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
 </html>

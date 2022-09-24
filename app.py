@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 app = Flask(__name__)
 regmodel = pickle.load(open('regmodel.pkl','rb'))
+scaler = pickle.load(open('scaling.pkl','rb'))
 
 @app.route('/')
 def home():
@@ -18,6 +19,15 @@ def predict_api():
     output = regmodel.predict(new_data)
     print(output[0])
     return jsonify(output[0])
+
+@app.route('/predict',methods=['POST'])
+def predict():
+    data = [float(x) for x in request.form.values()]
+    #test_data = request.form.get("firstname")
+    print('Receiving data',data)
+    final_input = scaler.transform(np.array(data).reshape(1,-1))
+    output = regmodel.predict(final_input)[0]
+    return render_template('home.html',prediction_text = 'The predicted house price is {}'.format(output))
 
 if __name__ == '__main__':
     app.run(debug=True)    
